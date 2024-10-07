@@ -7,19 +7,17 @@
 #include <cstdlib>
 #include <algorithm>
 
-/*This implementation involves reading a file, compressing its contents using Huffman coding,
- writing the compressed data to a file, and then decompressing it back to its original form.*/
 
 using namespace std;
-//Node in the Huffman tree,containing the frequency of a character, the character itself, and pointers to left and right children.
+
 struct Tree {
     int frequency;
     unsigned char character;
     Tree *left = nullptr;
     Tree *right = nullptr;
 };
-// Custom comparator for the priority queue to prioritize nodes with lower frequency.
-class TreeComparator {
+
+class TreeComparator { //custom comparator
 public:
     bool operator()(Tree *a, Tree *b) {
         return a->frequency > b->frequency;
